@@ -53,6 +53,14 @@ router.post('/plant-based-recipes', (req, res) => {
     const newData = req.body;
     res.json({ id, ...newData });
   });
+  // Delete
+  router.delete('/plant-based/:id', (req, res) => {
+    const { id } = req.params;
+    
+    res.sendStatus(204);
+  });
+  
+  module.exports = router;
 // API
 const express = require('express');
 const app = express();
