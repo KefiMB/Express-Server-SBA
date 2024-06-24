@@ -47,6 +47,12 @@ router.post('/plant-based-recipes', (req, res) => {
     const updatedRecipe = { id, ...updates };
     res.json(updatedRecipest);
   });
+  // Put
+  router.put('/plant-based-recipes/:id', (req, res) => {
+    const { id } = req.params;
+    const newData = req.body;
+    res.json({ id, ...newData });
+  });
 // API
 const express = require('express');
 const app = express();
