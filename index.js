@@ -32,13 +32,20 @@ app.use(logger);
 app.use('/api/plant-based-recipes', isVegan, plantBasedRecipesRouter); // Check if recipe is vegan
 app.get("/", (req, res) => {
 
-})
+}) 
+//Post
 router.post('/plant-based-recipes', (req, res) => {
   const { name, description } = req.body;
-  // Validate input
   if (!name || !description) {
     return res.status(400).json({ error: 'Name and description are required' });
   }
+  });
+// Patch
+  router.patch('/plant-based-recipes/:id', (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    const updatedRecipe = { id, ...updates };
+    res.json(updatedRecipest);
   });
 // API
 const express = require('express');
